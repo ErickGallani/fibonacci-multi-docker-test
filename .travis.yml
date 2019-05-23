@@ -6,7 +6,7 @@ before_install:
   - docker build -t erickgallani/fibonacci-multi-docker-test-client -f ./client/Dockerfile.ci ./client
 
 script:
-  - docker run erickgallani/fibonacci-multi-docker-test npm run test -- --coverage
+  - docker run erickgallani/fibonacci-multi-docker-test-client npm run test -- --coverage
 
 after_success:
   - docker build -t erickgallani/fibonacci-multi-docker-test-client ./client
