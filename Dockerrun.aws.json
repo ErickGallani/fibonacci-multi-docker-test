@@ -5,24 +5,28 @@
             "name": "FibonacciClient",
             "image": "erickgallani/fibonacci-multi-docker-test-client",
             "hostname": "client",
-            "essential": false
+            "essential": false,
+            "memory": 128
         },
         {
             "name": "FibonacciServer",
             "image": "erickgallani/fibonacci-multi-docker-test-server",
             "hostname": "api",
-            "essential": false
+            "essential": false,
+            "memory": 128
         },
         {
             "name": "FibonacciWorker",
             "image": "erickgallani/fibonacci-multi-docker-test-worker",
             "hostname": "worker",
-            "essential": false
+            "essential": false,
+            "memory": 128
         },
         {
             "name": "FibonacciNginx",
             "image": "erickgallani/fibonacci-multi-docker-test-nginx",
             "essential": true,
+            "memory": 128,
             "portMappings": [
                 {
                     "hostPort": 80,
