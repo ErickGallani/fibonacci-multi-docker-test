@@ -1,0 +1,35 @@
+{
+    "AWSEBDockerrunVersion": 2,
+    "containerDefinitions": [
+        {
+            "name": "FibonacciClient",
+            "image": "erickgallani/fibonacci-multi-docker-test-client",
+            "hostname": "client",
+            "essential": false
+        },
+        {
+            "name": "FibonacciServer",
+            "image": "erickgallani/fibonacci-multi-docker-test-server",
+            "hostname": "api",
+            "essential": false
+        },
+        {
+            "name": "FibonacciWorker",
+            "image": "erickgallani/fibonacci-multi-docker-test-worker",
+            "hostname": "worker",
+            "essential": false
+        },
+        {
+            "name": "FibonacciNginx",
+            "image": "erickgallani/fibonacci-multi-docker-test-nginx",
+            "essential": true,
+            "portMappings": [
+                {
+                    "hostPort": 80,
+                    "containerPort": 80
+                }
+            ],
+            "links": ["FibonacciClient", "FibonacciServer"]
+        }
+    ]
+}
